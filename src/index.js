@@ -15,4 +15,5 @@ ReactDOM.render(
     <ApolloProvider client={client}>
         <Hello name="jbc"/>
     </ApolloProvider>,
-    document.getElementById('root'));
+    document.getElementById('root')
+);

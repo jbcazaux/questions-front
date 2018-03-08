@@ -1,4 +1,3 @@
-const webpack = require('webpack'); // eslint-disable-line no-unused-vars
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
@@ -19,7 +18,7 @@ module.exports = {
         }),
         new CleanWebpackPlugin(['dist'], {verbose: true})
     ],
-    resolve: {extensions: ['.js']},
+    resolve: {extensions: ['.js', '.graphql']},
     module: {
         rules: [
             {
@@ -32,6 +31,11 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'source-map-loader'
+            },
+            {
+                test: /\.graphql$/,
+                exclude: /node_modules/,
+                loader: 'graphql-tag/loader'
             }
         ]
     },

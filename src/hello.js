@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { gql } from 'apollo-client-preset';
 import { graphql } from 'react-apollo';
+import QUESTIONS_QUERY from './gql/questions.graphql';
 
 export class Hello extends React.PureComponent {
     render() {
@@ -23,14 +23,5 @@ export class Hello extends React.PureComponent {
         return <div>waiting...</div>;
     }
 }
-
-const QUESTIONS_QUERY = gql`
-  query QuestionQuery {
-    questions {
-      id,
-      label
-    }
-  }
-`;
 
 export default graphql(QUESTIONS_QUERY)(Hello);

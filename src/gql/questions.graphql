@@ -1,0 +1,6 @@
+query QuestionQuery {
+    questions {
+        id,
+        label
+    }
+}
