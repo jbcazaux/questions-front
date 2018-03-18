@@ -1,4 +1,5 @@
 import * as React from 'react';
+import AddQuestionForm from './addquestion';
 import { graphql } from 'react-apollo';
 import QUESTIONS_QUERY from './gql/questions.graphql';
 
@@ -18,6 +19,8 @@ export class Hello extends React.PureComponent {
                 <ul>
                     {this.props.data.questions.map(q => <li key={q.id}>{q.label}</li>)}
                 </ul>
+                <hr/>
+                <AddQuestionForm/>
             </div>;
         }
         return <div>waiting...</div>;

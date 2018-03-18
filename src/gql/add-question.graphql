@@ -1,0 +1,6 @@
+mutation AddQuestion($label: String!) {
+    addQuestion(label: $label) {
+        id,
+        label
+    }
+}
