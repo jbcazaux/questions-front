@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ADDQUESTION_MUTATION from './gql/add-question.graphql';
-import { graphql } from 'react-apollo';
+import {graphql} from 'react-apollo';
 
 class AddQuestionFom extends React.Component {
     constructor(props) {
@@ -11,11 +11,7 @@ class AddQuestionFom extends React.Component {
 
     addQuestion(e) {
         e.preventDefault();
-        this.props.addQuestion({
-            variables: {
-                label: this.state.label
-            }
-        })
+        this.props.add(this.state.label)
             .then(() => this.setState({label: ''}));
     }
 
@@ -31,4 +27,8 @@ class AddQuestionFom extends React.Component {
     }
 }
 
-export default graphql(ADDQUESTION_MUTATION, {name: 'addQuestion'})(AddQuestionFom);
+export default graphql(ADDQUESTION_MUTATION, {
+    props: ({mutate}) => ({
+        add: (label) => mutate({variables: {label}})
+    })
+})(AddQuestionFom);
