@@ -29,6 +29,6 @@ class AddQuestionFom extends React.Component {
 
 export default graphql(ADDQUESTION_MUTATION, {
     props: ({mutate}) => ({
-        add: (label) => mutate({variables: {label}})
+        add: (label) => mutate({variables: {label}, refetchQueries: ['QuestionQuery']})
     })
 })(AddQuestionFom);
